@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Defines the character encoding used by the webpage. -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the dashboard responsive on mobile, tablet and desktop. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Displays the application name in the browser tab. -->
+    <title>TaskFlow - Task Management</title>
+
+    <!-- Connects the HTML page with the CSS file. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Main wrapper containing the sidebar and dashboard. -->
+    <div class="app-container">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <!-- Left navigation panel. -->
+        <aside class="sidebar">
+
+            <!-- Application logo and name. -->
+            <h1 class="logo">TaskFlow</h1>
+
+            <!-- Navigation menu. -->
+            <nav>
+
+                <!-- Dashboard navigation link. -->
+                <a href="#" class="nav-link active">Dashboard</a>
+
+                <!-- Clicking this link moves to the My Tasks section. -->
+                <a href="#tasks-section" class="nav-link">My Tasks</a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <!-- Contains the complete dashboard content. -->
+        <main class="main-content">
+
+
+            <!-- ================= DASHBOARD HEADER ================= -->
+
+            <!-- Top section containing heading and project selection. -->
+            <header class="topbar">
+
+                <div>
+
+                    <!-- Main dashboard heading. -->
+                    <h2>Dashboard</h2>
+
+                    <!-- Dashboard description. -->
+                    <p>Manage your projects and tasks in one place.</p>
+
+                </div>
+
+                <!-- Project selection section. -->
+                <div class="project-selector">
+
+                    <!-- Label for the project dropdown. -->
+                    <label for="project-select">Select Project</label>
+
+                    <!-- JavaScript loads projects from the backend into this dropdown. -->
+                    <select id="project-select">
+
+                        <option value="">Loading projects...</option>
+
+                    </select>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= STATISTICS CARDS ================= -->
+
+            <!-- Displays task statistics for the selected project. -->
+            <section class="stats-container">
+
+                <!-- Total tasks card. -->
+                <div class="stat-card">
+
+                    <p>Total Tasks</p>
+
+                    <!-- JavaScript updates this number. -->
+                    <h3 id="total-tasks">0</h3>
+
+                </div>
+
+
+                <!-- Pending tasks card. -->
+                <div class="stat-card">
+
+                    <p>Pending</p>
+
+                    <!-- JavaScript updates the pending task count. -->
+                    <h3 id="pending-tasks">0</h3>
+
+                </div>
+
+
+                <!-- In-progress tasks card. -->
+                <div class="stat-card">
+
+                    <p>In Progress</p>
+
+                    <!-- JavaScript updates the in-progress task count. -->
+                    <h3 id="progress-tasks">0</h3>
+
+                </div>
+
+
+                <!-- Completed tasks card. -->
+                <div class="stat-card">
+
+                    <p>Completed</p>
+
+                    <!-- JavaScript updates the completed task count. -->
+                    <h3 id="completed-tasks">0</h3>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= CREATE TASK FORM ================= -->
+
+            <!-- White panel containing the task creation form. -->
+            <section class="task-form-section">
+
+                <h2>Create a New Task</h2>
+
+                <!-- JavaScript handles form submission. -->
+                <form id="task-form">
+
+                    <!-- Task title field. -->
+                    <div class="form-group">
+
+                        <label for="task-title">Task Title</label>
+
+                        <input
+                            type="text"
+                            id="task-title"
+                            placeholder="Enter task title"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Task priority field. -->
+                    <div class="form-group">
+
+                        <label for="task-priority">Priority</label>
+
+                        <select id="task-priority">
+
+                            <option value="low">Low</option>
+
+                            <option value="medium" selected>
+                                Medium
+                            </option>
+
+                            <option value="high">High</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Task status field. -->
+                    <div class="form-group">
+
+                        <label for="task-status">Status</label>
+
+                        <select id="task-status">
+
+                            <option value="pending">Pending</option>
+
+                            <option value="in_progress">
+                                In Progress
+                            </option>
+
+                            <option value="completed">Completed</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Optional task due date field. -->
+                    <div class="form-group">
+
+                        <label for="task-due-date">Due Date</label>
+
+                        <input
+                            type="date"
+                            id="task-due-date"
+                        >
+
+                    </div>
+
+
+                    <!-- Button used for creating or updating tasks. -->
+                    <button
+                        type="submit"
+                        id="submit-button"
+                    >
+                        Create Task
+                    </button>
+
+
+                    <!-- Visible only when editing an existing task. -->
+                    <button
+                        type="button"
+                        id="cancel-edit-button"
+                        hidden
+                    >
+                        Cancel Edit
+                    </button>
+
+                </form>
+
+
+                <!-- JavaScript displays success and error messages here. -->
+                <p id="form-message" role="status"></p>
+
+            </section>
+
+
+            <!-- ================= MY TASKS SECTION ================= -->
+
+            <!-- Contains search, sorting and task cards. -->
+            <section
+                id="tasks-section"
+                class="tasks-section"
+            >
+
+                <!-- My Tasks heading. -->
+                <div class="tasks-header">
+
+                    <div>
+
+                        <h2>My Tasks</h2>
+
+                        <p>View and manage your tasks.</p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================= SEARCH AND SORTING ================= -->
+
+                <div class="task-controls">
+
+                    <!-- Search tasks by their title. -->
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder="Search tasks..."
+                    >
+
+
+                    <!-- Sort tasks by priority. -->
+                    <select id="sort-select">
+
+                        <option value="none">
+                            Default Order
+                        </option>
+
+                        <option value="priority">
+                            Sort by Priority
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ================= TASK LIST ================= -->
+
+                <!-- JavaScript dynamically inserts task cards here. -->
+                <div
+                    id="task-list"
+                    class="task-list"
+                >
+
+                    <p>Loading tasks...</p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Loads JavaScript after the HTML elements are defined. -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

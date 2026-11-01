@@ -1,0 +1,339 @@
+/* Reset default browser spacing for every element. */
+* {
+    margin: 0;
+    padding: 0;
+
+    /* Include padding and borders in the declared element width. */
+    box-sizing: border-box;
+}
+
+/* Set the default font, background and text color. */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fb;
+    color: #1e293b;
+}
+
+/* Place the sidebar and dashboard next to each other. */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Create the dark navy sidebar on the left. */
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background-color: #172033;
+    color: white;
+    padding: 30px 20px;
+}
+
+/* Style the TaskFlow logo. */
+.logo {
+    font-size: 26px;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+/* Arrange navigation links vertically. */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Common styling for navigation links. */
+.nav-link {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Highlight active and hovered navigation links. */
+.nav-link.active,
+.nav-link:hover {
+    background-color: #334155;
+    color: white;
+}
+
+/* Style the main dashboard area. */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 35px;
+}
+
+/* Place dashboard heading on the left and project dropdown on the right. */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Dashboard heading. */
+.topbar h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+/* Supporting text below headings. */
+.topbar p,
+.tasks-header p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* Stack the project label above its dropdown. */
+.project-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 190px;
+}
+
+/* Style form labels. */
+label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Common styling for input fields and dropdowns. */
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dbe1ea;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 14px;
+    color: #1e293b;
+    outline: none;
+}
+
+/* Highlight a control when the user selects it. */
+input:focus,
+select:focus {
+    border-color: #6366f1;
+}
+
+/* Arrange four statistics cards in equal columns. */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Style each statistics card. */
+.stat-card {
+    background-color: white;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #e5eaf2;
+}
+
+/* Statistics card label. */
+.stat-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+/* Statistics card number. */
+.stat-card h3 {
+    font-size: 28px;
+}
+
+/* Common styling for the task form and task list panels. */
+.task-form-section,
+.tasks-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e5eaf2;
+    margin-bottom: 25px;
+}
+
+/* Style section headings. */
+.task-form-section h2,
+.tasks-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Arrange task form fields in two columns. */
+#task-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+/* Stack each label above its input. */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Style action buttons. */
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4f46e5;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Change button color when hovered. */
+button:hover {
+    background-color: #4338ca;
+}
+
+/* Give Cancel Edit a neutral color. */
+#cancel-edit-button {
+    background-color: #64748b;
+}
+
+/* Keep elements with the hidden attribute invisible. */
+[hidden] {
+    display: none !important;
+}
+
+/* Style the success and error message area. */
+#form-message {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Add space below the My Tasks heading. */
+.tasks-header {
+    margin-bottom: 20px;
+}
+
+/* Arrange search and sorting controls in one row. */
+.task-controls {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Stack task cards vertically. */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Style each task card created by JavaScript. */
+.task-card {
+    border: 1px solid #e5eaf2;
+    border-radius: 10px;
+    padding: 18px;
+    background-color: #ffffff;
+}
+
+/* Style task title. */
+.task-card h3 {
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+/* Style task details. */
+.task-card p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* Add spacing around task action buttons. */
+.task-card button {
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/* Make Delete button red to indicate a destructive action. */
+.task-card button[data-action="delete"] {
+    background-color: #dc2626;
+}
+
+/* Darken Delete button on hover. */
+.task-card button[data-action="delete"]:hover {
+    background-color: #b91c1c;
+}
+
+/* Tablet layout: apply these rules at 900px or below. */
+@media (max-width: 900px) {
+
+    /* Display two statistics cards per row. */
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Reduce sidebar width. */
+    .sidebar {
+        width: 190px;
+    }
+}
+
+/* Mobile layout: apply these rules at 600px or below. */
+@media (max-width: 600px) {
+
+    /* Stack sidebar above main content. */
+    .app-container {
+        flex-direction: column;
+    }
+
+    /* Make sidebar full width. */
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Reduce space below the logo. */
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    /* Display navigation links horizontally. */
+    .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* Reduce dashboard padding. */
+    .main-content {
+        padding: 18px;
+    }
+
+    /* Stack heading and project dropdown. */
+    .topbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Keep two statistics cards per row. */
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* Stack form fields in one column. */
+    #task-form {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stack search and sorting controls. */
+    .task-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+

@@ -1,0 +1,50 @@
+we are going to create a project called 
+Taskflow 
+
+Website development -> design an homepage , fixing the login page and testing the Website
+
+database to store the info 
+api to create , read and update and delete 
+here python and fast api for api builing 
+
+SQLAlchemy ?? ->> to communitcate with database 
+
+pydentic ->
+
+liner search and bubble sort 
+
+project setup 
+
+
+Project structure : 
+Taskflow 
+
+.venv/
+backend/ 
+    __init__.py 
+    database.py 
+    model.py 
+    schemas.py 
+    algorithms.py 
+    create_tables.py 
+    test_db_connection.py 
+    main.py 
+requriement.txt
+
+taskflow needs three tablels 
+users , projects and task 
+
+
+Table   Example 
+User    Rahul , ID = 1
+Project  Website development , ID 1 , Owner ID 1 
+Task    Fix login page , project ID 1 
+
+
+first we have to create the object -> passed to the database -> database will store this information -> commit -> it will return an id 
+
+
+
+
+This class is all about frontend .
+
